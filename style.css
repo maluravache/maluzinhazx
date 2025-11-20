@@ -1,85 +1,62 @@
 /* ============================================
-   ESTILO FINAL - OUVIDORIA DA MULHER
+   ESTILO GERAL - OUVIDORIA DA MULHER 2.0
    ============================================ */
 
 :root {
   /* PALETA DE CORES */
-  --roxo-escuro: #55214b;  /* Roxo Original */
-  --roxo-claro: #7e144f;   /* Roxo para Gradiente */
-  --jacarta: #422e6a;      /* NOVO: Roxo Escuro para Títulos/Botões */
-  --amarelo: #fbcf42;      /* Amarelo Destaque */
+  --roxo-escuro: #55214b; 
+  --roxo-claro: #7e144f; 
+  --jacarta: #422e6a;      /* Cor Principal para Títulos e Botões */
+  --amarelo: #fbcf42;      /* Destaque */
   
-  /* Neutros */
-  --text: #2B2B2B;         /* Texto corrido (Cinza quase preto) */
-  --text-light: #555;      /* Texto de apoio */
+  --text: #2B2B2B;        
+  --text-light: #555;     
   --white: #FFFFFF;
-  --paper: #F7F6F9;        /* Fundo claro */
+  --paper: #F7F6F9;       
   
-  /* Gradiente Hero */
   --gradient-hero: linear-gradient(135deg, var(--roxo-escuro) 0%, var(--roxo-claro) 100%);
-  
   --container-width: 1100px;
   --radius: 16px;
 }
 
-/* Reset e Base */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: 'Poppins', sans-serif; 
-    color: var(--text); 
-    background: var(--paper); 
-    line-height: 1.6; 
-    padding-top: 80px; /* Espaço para o menu fixo */
-}
+body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--paper); line-height: 1.6; padding-top: 80px; }
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* Títulos (Cor Jacarta) */
-h1, h2, h3, h4 { color: var(--jacarta); font-weight: 800; }
+/* Títulos */
+h1, h2, h3 { color: var(--jacarta); font-weight: 800; }
 
 /* Container */
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
 
-/* === MENU FIXO === */
-.header { 
-    position: fixed; top: 0; left: 0; width: 100%; 
-    padding: 15px 0; z-index: 1000; 
-    background: var(--roxo-escuro); 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
+/* MENU FIXO */
+.header { position: fixed; top: 0; left: 0; width: 100%; padding: 12px 0; z-index: 1000; background: var(--roxo-escuro); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 .header-row { display: flex; justify-content: space-between; align-items: center; }
-.header__logo img { height: 45px; width: auto; } /* Logo aumentado */
+.header__logo img { height: 50px; width: auto; } /* Aumentado */
 
-/* Links Desktop */
 .nav-links { display: flex; gap: 25px; align-items: center; }
-.nav-links a { color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.nav-links a { color: rgba(255,255,255,0.9); font-weight: 500; font-size: 0.95rem; text-transform: uppercase; }
 .nav-links a:hover { color: var(--amarelo); }
 
-/* Menu Mobile (Hambúrguer) */
 .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
 
 @media (max-width: 900px) {
     .mobile-menu-btn { display: block; }
     .nav-links {
-        display: none; 
-        position: absolute; top: 100%; left: 0; width: 100%;
-        background: var(--roxo-escuro); flex-direction: column;
-        padding: 20px; gap: 20px; text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: var(--roxo-escuro); flex-direction: column; padding: 20px; gap: 20px; text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
     .nav-links.active { display: flex; }
 }
 
-/* === HERO (Menor e Ancorado) === */
+/* HERO */
 .hero {
-    background: var(--gradient-hero);
-    min-height: auto; 
-    padding-top: 40px; padding-bottom: 0; /* Sem padding em baixo para a imagem colar */
-    border-radius: 0 0 40px 40px;
-    color: white;
-    display: flex; align-items: flex-end;
-    overflow: hidden;
+    background: var(--gradient-hero); min-height: auto; 
+    padding-top: 40px; padding-bottom: 0; /* Ancorado no chão */
+    border-radius: 0 0 40px 40px; color: white;
+    display: flex; align-items: flex-end; overflow: hidden;
 }
 .hero-content { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; width: 100%; }
 @media(min-width: 768px) { 
@@ -91,34 +68,28 @@ h1, h2, h3, h4 { color: var(--jacarta); font-weight: 800; }
 .hero-text h1 { color: var(--amarelo); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 15px; }
 .hero-text p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 25px; max-width: 480px; }
 
-/* Botão Fale Conosco (Hero) */
 .btn-cta {
-    background: var(--amarelo); color: var(--jacarta);
-    padding: 12px 30px; border-radius: 50px; font-weight: 800;
-    display: inline-flex; align-items: center; gap: 10px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    background: var(--amarelo); color: var(--jacarta); padding: 12px 30px; border-radius: 50px; font-weight: 800;
+    display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
-.btn-cta i { font-size: 1.2rem; } /* Ícone WhatsApp Outline */
 .btn-cta:hover { transform: translateY(-3px); background: #fff; }
 
 /* Imagem Hero Ancorada */
 .hero-img { display: flex; justify-content: center; align-items: flex-end; width: 100%; }
-.hero-img img { 
-    max-height: 380px; width: auto; 
-    margin-bottom: -1px; /* Garante que cola no chão */
-}
+.hero-img img { max-height: 380px; width: auto; margin-bottom: -1px; }
 @media(min-width: 768px) { 
     .hero-img { justify-content: flex-end; }
-    .hero-img img { max-height: 450px; margin-right: 20px; }
+    .hero-img img { max-height: 460px; margin-right: 20px; }
 }
 
-/* === SEÇÕES GERAIS === */
+/* SEÇÕES GERAIS */
 .section { padding: 60px 0; }
 .section--bg { background: white; }
 .section-title { font-size: 2rem; margin-bottom: 10px; text-align: center; }
+.section-title--small { font-size: 1.2rem; margin-bottom: 15px; color: var(--jacarta); }
 .section-subtitle { text-align: center; color: var(--text-light); margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-/* === QUEM SOMOS === */
+/* QUEM SOMOS */
 .info-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; margin-top: 20px; }
 .badge-item { 
     background: white; border: 1px solid var(--jacarta); color: var(--jacarta);
@@ -126,69 +97,55 @@ h1, h2, h3, h4 { color: var(--jacarta); font-weight: 800; }
     display: flex; align-items: center; gap: 8px;
 }
 
-/* Cards Coloridos + Vídeos */
 .campaign-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media(min-width: 768px) { .campaign-grid { grid-template-columns: repeat(3, 1fr); } } /* 3 colunas */
-
+@media(min-width: 768px) { .campaign-grid { grid-template-columns: repeat(3, 1fr); } }
 .camp-card { padding: 25px; border-radius: var(--radius); color: white; display: flex; flex-direction: column; justify-content: space-between; min-height: 180px; }
-.camp-card h3 { color: white; font-size: 1.3rem; margin-bottom: 10px; }
-.camp-card a { color: white; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; margin-top: auto; }
-
-/* Cores dos Cards */
 .camp-card--1 { background: linear-gradient(135deg, #FF9966, #FF5E62); }
 .camp-card--2 { background: linear-gradient(135deg, #DA22FF, #9733EE); }
 .camp-card--3 { background: linear-gradient(135deg, #55214b, #7e144f); }
-.camp-card--video { 
-    background: #333; border: 2px solid #444; position: relative; 
-    align-items: center; justify-content: center; text-align: center;
+.camp-card--video { background: #333; border: 2px solid #444; align-items: center; justify-content: center; text-align: center; }
+.camp-card--video i { font-size: 2.5rem; margin-bottom: 10px; color: var(--amarelo); }
+.camp-card h3 { font-size: 1.3rem; font-weight: 800; color: white; margin-bottom: 10px; }
+.camp-card a { color: white; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+
+/* SERVIÇOS */
+.service-cards-grid, .denuncia-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
+@media (min-width: 768px) {
+    .service-cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .denuncia-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.camp-card--video i.bi-play-circle { font-size: 3rem; opacity: 0.8; transition: 0.3s; }
-.camp-card--video:hover i.bi-play-circle { transform: scale(1.1); opacity: 1; color: var(--amarelo); }
-
-/* === SERVIÇOS === */
-.service-cards-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 40px; }
-@media (min-width: 768px) { .service-cards-grid { grid-template-columns: repeat(3, 1fr); } }
-
-.service-card-detailed {
+.service-card-detailed, .content-box {
     background: var(--white); padding: 25px; border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--jacarta);
 }
-.service-card-detailed h3 {
-    font-size: 1.1rem; border-bottom: 1px solid var(--paper); padding-bottom: 10px; margin-bottom: 15px;
+.service-card-detailed h3, .content-box h3 {
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--paper);
     display: flex; align-items: center; gap: 10px;
 }
-.service-card-detailed h3 i { color: var(--jacarta); }
-
 .item-detalhe { margin-bottom: 15px; }
-.item-detalhe strong { display: block; color: var(--jacarta); font-weight: 700; margin-bottom: 3px; font-size: 0.95rem; }
+.item-detalhe strong { display: block; color: var(--jacarta); font-weight: 700; font-size: 0.95rem; }
 .item-detalhe p { margin: 2px 0; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
-.item-detalhe i { color: var(--jacarta); } /* Ícones pretos/jacarta */
-.item-detalhe a { color: var(--text); text-decoration: underline; text-decoration-color: rgba(0,0,0,0.2); }
+.item-detalhe i { color: var(--jacarta); font-size: 1rem; } /* Ícones pretos/roxos */
+.item-detalhe a { color: var(--text); }
 
-/* === ONDE DENUNCIAR === */
-.denuncia-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
-@media (min-width: 768px) { .denuncia-grid { grid-template-columns: repeat(2, 1fr); } }
-
-.content-box { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-.content-box h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--jacarta); }
-
-/* Botões Emergência (Pílulas Roxas) */
-.emergency-disques-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 30px; }
+/* DENÚNCIA - NOVOS BOTÕES */
+.emergency-disques-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 20px; }
 @media (min-width: 600px) { .emergency-disques-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 900px) { .emergency-disques-grid { grid-template-columns: repeat(4, 1fr); } }
 
 .disque-btn {
-    background: var(--jacarta); color: white; /* Fundo Roxo Jacarta */
-    padding: 12px 20px; border-radius: 50px;
+    background: var(--jacarta); color: white; /* Roxo Jacarta (Sem vermelho) */
+    padding: 15px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center; gap: 10px;
     transition: 0.3s; box-shadow: 0 4px 10px rgba(66, 46, 106, 0.2);
 }
 .disque-btn:hover { transform: translateY(-2px); background: var(--roxo-escuro); }
-.disque-icon { font-size: 1.4rem; font-weight: 800; } /* Número grande */
-.disque-text { font-size: 0.85rem; font-weight: 500; line-height: 1.1; text-align: left; }
+.disque-btn i { font-size: 1.2rem; }
+.disque-btn span { font-size: 0.9rem; line-height: 1.2; text-align: left; }
+.disque-btn strong { font-size: 1.1rem; margin-right: 5px; }
 
-/* === LEIS (Sem Dropdown) === */
-.leis-grid { display: grid; gap: 20px; max-width: 900px; margin: 0 auto; }
+/* LEIS (Direto, sem setas) */
+.leis-grid { display: grid; gap: 15px; max-width: 900px; margin: 0 auto; }
 .lei-card { 
     background: white; padding: 25px; border-radius: 12px; 
     border-left: 5px solid var(--amarelo); 
@@ -197,38 +154,38 @@ h1, h2, h3, h4 { color: var(--jacarta); font-weight: 800; }
 .lei-card h3 { font-size: 1.1rem; margin-bottom: 5px; }
 .lei-card p { font-size: 0.95rem; color: var(--text-light); }
 
-.btn-link-leis { 
-    display: inline-block; margin-top: 30px; 
-    color: var(--jacarta); font-weight: 700; border-bottom: 2px solid var(--amarelo); 
+.btn-cta-secondary { 
+    display: inline-block; margin-top: 30px; border: 2px solid var(--jacarta); 
+    color: var(--jacarta); padding: 10px 25px; border-radius: 50px; font-weight: 700; 
 }
 
-/* === BUTIQUE SOLIDÁRIA === */
-.butique-highlight { 
-    background: white; padding: 30px; border-radius: var(--radius); 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; 
-}
-.homenagem-text { font-size: 0.95rem; color: var(--jacarta); margin-bottom: 20px; font-style: italic; }
+/* BUTIQUE */
+.homenagem-destaque { text-align: center; margin-bottom: 30px; color: var(--jacarta); font-size: 0.95rem; padding: 0 20px; }
+.butique-highlight { background: white; padding: 30px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+.donation-list { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; }
+.donation-list li { background: #f0ebf3; color: var(--jacarta); padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; }
 
-.butique-locations { margin-top: 30px; text-align: left; background: var(--paper); padding: 20px; border-radius: 12px; }
-.butique-locations summary { cursor: pointer; font-weight: 700; color: var(--jacarta); list-style: none; display: flex; align-items: center; justify-content: space-between; }
-.butique-locations summary::after { content: '▼'; font-size: 0.8rem; color: var(--amarelo); }
-.butique-locations[open] summary::after { transform: rotate(180deg); }
+.pontos-coleta-wrapper { margin-top: 30px; text-align: left; background: var(--paper); padding: 20px; border-radius: 12px; }
+details.locations summary { cursor: pointer; font-weight: 700; color: var(--jacarta); list-style: none; display: flex; align-items: center; justify-content: space-between; }
+details.locations summary::after { content: '▼'; font-size: 0.8rem; color: var(--amarelo); }
+.location-list { margin-top: 15px; display: grid; gap: 10px; }
+.loc-item { background: white; padding: 15px; border-radius: 10px; font-size: 0.9rem; }
 
-/* === RODAPÉ (3 Colunas) === */
-.footer { background: var(--roxo-escuro); color: white; padding: 60px 0 20px; font-size: 0.9rem; }
+/* RODAPÉ */
+.footer { background: var(--roxo-escuro); color: white; padding: 50px 0 20px; font-size: 0.9rem; }
 .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; }
 @media (min-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } }
 
 .footer-col h4 { color: var(--amarelo); font-size: 1rem; margin-bottom: 20px; text-transform: uppercase; }
 .footer-col ul { list-style: none; }
 .footer-col li { margin-bottom: 10px; }
-.footer-col a:hover { color: var(--amarelo); text-decoration: underline; }
+.footer-col a:hover { color: var(--amarelo); }
 
+.footer-apoio-box span { display: block; font-size: 0.85rem; margin-bottom: 10px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; }
 .footer-logos { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
-.footer-logos img { height: 40px; width: auto; filter: brightness(0) invert(1); opacity: 0.8; }
+.footer-logos img { height: 40px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
 
 .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.8rem; opacity: 0.6; }
 
 /* FAB WhatsApp */
-.fab { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 100; transition: 0.3s; }
-.fab:hover { transform: scale(1.1); }
+.fab { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 100; }
