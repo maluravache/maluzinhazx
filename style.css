@@ -1,16 +1,19 @@
 /* ============================================
-   ESTILO GERAL - CORREÇÃO TOTAL
+   ESTILO GERAL - VERSÃO 4.0 (DEFINITIVA)
    ============================================ */
 
 :root {
-  --roxo-escuro: #55214b; 
-  --roxo-claro: #7e144f; 
-  --jacarta: #422e6a;      
-  --amarelo: #fbcf42;      
+  /* CORES */
+  --jacarta: #422e6a;      /* Títulos */
+  --roxo-claro: #7e144f;   /* Subtítulos */
+  --roxo-escuro: #55214b;  /* Semi-títulos */
+  --amarelo: #fbcf42;      /* Bordas e Destaques */
   --vermelho-discreto: #9e2a2b; 
+  
   --text: #2B2B2B;        
   --white: #FFFFFF;
   --paper: #F7F6F9;       
+  
   --gradient-hero: linear-gradient(135deg, var(--roxo-escuro) 0%, var(--roxo-claro) 100%);
   --container-width: 1280px;
   --radius: 16px;
@@ -21,26 +24,21 @@ body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(-
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* Tipografia */
-h1, h2, h3 { color: var(--jacarta); font-weight: 800; }
-h4, .section-subtitle { color: var(--text); font-weight: 400; max-width: 800px; margin: 0 auto 40px; text-align: center; }
+/* TIPOGRAFIA & CORES HIERARQUIA */
+h1, h2, .section-title { color: var(--jacarta); font-weight: 800; }
+h3 { color: var(--jacarta); font-weight: 800; } /* Títulos dos Cards */
+h4 { color: var(--roxo-claro); font-weight: 700; } /* Títulos menores */
+.section-subtitle { color: var(--text); font-weight: 400; max-width: 800px; margin: 0 auto 40px; text-align: center; }
 
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
 
 /* MENU */
 .header { position: absolute; top: 0; left: 0; width: 100%; padding: 15px 0; z-index: 1000; background: transparent; }
 .header-row { display: flex; justify-content: space-between; align-items: center; }
-.header__logo img { height: 90px; width: auto; } /* LOGO GRANDE */
-
+.header__logo img { height: 90px; width: auto; }
 .nav-links { display: flex; gap: 30px; align-items: center; }
-.nav-links a { 
-    color: rgba(255,255,255,0.95); font-weight: 600; font-size: 1rem; 
-    text-transform: uppercase; letter-spacing: 0.5px;
-}
+.nav-links a { color: rgba(255,255,255,0.95); font-weight: 500; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
 .nav-links a:hover { color: var(--amarelo); }
-.btn-sair-topo { display: none; background: var(--vermelho-discreto); color: white; padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; }
-@media(min-width: 900px) { .btn-sair-topo { display: inline-block; } }
-
 .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; }
 @media (max-width: 900px) {
     .mobile-menu-btn { display: block; }
@@ -49,7 +47,7 @@ h4, .section-subtitle { color: var(--text); font-weight: 400; max-width: 800px; 
     .header__logo img { height: 60px; }
 }
 
-/* HERO (Reto) */
+/* HERO */
 .hero { background: var(--gradient-hero); min-height: auto; padding-top: 140px; padding-bottom: 0; border-radius: 0; color: white; display: flex; align-items: flex-end; overflow: hidden; }
 .hero-content { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; width: 100%; }
 @media(min-width: 768px) { .hero-content { grid-template-columns: 1.2fr 0.8fr; } .hero { padding-top: 160px; } }
@@ -71,9 +69,8 @@ h4, .section-subtitle { color: var(--text); font-weight: 400; max-width: 800px; 
 .nav-arrow:hover { background: var(--amarelo); }
 .prev-btn { left: -10px; } .next-btn { right: -10px; }
 @media(min-width: 768px) { .nav-arrow { display: flex; } }
-
 .camp-card { flex: 0 0 280px; min-height: 180px; padding: 25px; position: relative; border-radius: var(--radius); color: white; display: flex; flex-direction: column; justify-content: space-between; scroll-snap-align: start; }
-.camp-card i { font-size: 2rem; margin-bottom: 10px; color: rgba(255,255,255,0.8); }
+.card-icon-bg { font-size: 2.5rem; color: white; margin-bottom: 10px; display: block; }
 .camp-card h3 { color: inherit; font-size: 1.2rem; font-weight: 800; z-index: 2; }
 .camp-card a { color: inherit; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; z-index: 2; }
 .camp-card--video { align-items: center; justify-content: center; text-align: center; background: #222; color: white; }
@@ -81,35 +78,58 @@ h4, .section-subtitle { color: var(--text); font-weight: 400; max-width: 800px; 
 .drag-hint { text-align: center; font-size: 0.8rem; color: #888; margin-top: -10px; }
 @media(min-width: 768px) { .drag-hint { display: none; } }
 
-/* SERVIÇOS */
-.section { padding: 60px 0; }
-.section--bg { background: white; }
-.section-title { font-size: 2rem; margin-bottom: 10px; text-align: center; }
+/* INFO BADGES */
 .info-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; }
 .badge-item { background: white; border: 1px solid var(--roxo-claro); color: var(--roxo-claro); padding: 10px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
 .badge-item:hover { background: var(--roxo-claro); color: white; }
 
+/* === SERVIÇOS & DENÚNCIA === */
+.section { padding: 60px 0; }
+.section--bg { background: white; }
+.section-title { font-size: 2rem; margin-bottom: 10px; text-align: center; }
+
 .service-cards-grid, .denuncia-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
-@media (min-width: 768px) { .service-cards-grid { grid-template-columns: repeat(3, 1fr); } .denuncia-grid { grid-template-columns: repeat(2, 1fr); } }
-.service-card-detailed, .content-box { background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--jacarta); }
-.service-card-detailed h3, .content-box h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--paper); display: flex; align-items: center; gap: 10px; color: var(--jacarta); }
-.item-detalhe { margin-bottom: 15px; }
-.item-detalhe strong { display: block; color: var(--roxo-claro); font-weight: 700; font-size: 0.95rem; }
-.item-detalhe p { margin: 2px 0; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; color: var(--text); }
-.item-detalhe i { color: var(--jacarta); font-size: 1rem; }
+@media (min-width: 768px) {
+    .service-cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .denuncia-grid { grid-template-columns: 1.2fr 0.8fr; } /* Coluna Delegacia maior, Saúde menor */
+}
+.service-card-detailed, .content-box {
+    background: var(--white); padding: 25px; border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+    border-top: 5px solid var(--amarelo); /* BORDA AMARELA PEDIDA */
+    height: 100%;
+}
+.service-card-detailed h3, .content-box h3 {
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--paper);
+    display: flex; align-items: center; gap: 10px; color: var(--jacarta);
+}
+.item-detalhe { margin-bottom: 20px; }
+.item-detalhe strong { display: block; color: var(--roxo-claro); /* SUBTÍTULO ROXO CLARO */ font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+.item-detalhe p { margin: 3px 0; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; color: var(--text); }
+.item-detalhe i { color: var(--jacarta); font-size: 1rem; } /* ÍCONE APENAS BORDA (NO HTML) */
 .item-detalhe a { color: var(--text); text-decoration: none !important; }
 .item-detalhe a:hover { color: var(--jacarta); }
 
-/* DENÚNCIA */
+/* Passo a Passo Box */
+.passo-a-passo-box { background: #fff6d6; padding: 20px; border-radius: 12px; margin-top: 20px; border-left: 4px solid var(--amarelo); }
+.passo-a-passo-box h4 { color: var(--jacarta); font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.passo-a-passo-box ul { padding-left: 20px; margin: 0; }
+.passo-a-passo-box li { font-size: 0.9rem; color: var(--text); margin-bottom: 5px; }
+
+/* BOTÕES EMERGÊNCIA */
 .emergency-disques-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; }
-.disque-btn { background: var(--jacarta); color: white; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; transition: 0.3s; min-width: 200px; }
-.disque-btn:hover { transform: translateY(-2px); background: var(--roxo-escuro); }
+.disque-btn {
+    background: var(--jacarta); color: white; padding: 10px 20px; border-radius: 50px;
+    display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+    transition: 0.3s; min-width: 200px;
+}
+.disque-btn:hover { transform: translateY(-2px); background: var(--roxo-claro); /* INVERTE A COR NO MOUSE */ }
 .disque-btn strong { font-size: 1.1rem; }
 
 /* LEIS & BUTIQUE & RODAPÉ */
 .leis-grid { display: grid; gap: 15px; max-width: 900px; margin: 0 auto; }
 .lei-card { background: white; padding: 20px; border-radius: 12px; border-left: 5px solid var(--amarelo); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-.lei-card h3 { color: var(--jacarta); }
+.lei-card h3 { color: var(--jacarta); font-size: 1.1rem; }
 .btn-cta-secondary { display: inline-block; margin-top: 30px; border: 2px solid var(--jacarta); color: var(--jacarta); padding: 10px 25px; border-radius: 50px; font-weight: 700; }
 
 .butique-desc { text-align: center; max-width: 800px; margin: 0 auto 40px; }
