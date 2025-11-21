@@ -1,5 +1,5 @@
 /* ============================================
-   ESTILO GERAL - VERSÃO SEGURA (RESTORE)
+   ESTILO GERAL - FINAL
    ============================================ */
 
 :root {
@@ -12,9 +12,6 @@
   --text: #2B2B2B;        
   --white: #FFFFFF;
   --paper: #F7F6F9;       
-  
-  /* O Roxo Profundo do Hero */
-  --gradient-hero: linear-gradient(135deg, #2E0249 0%, #570A57 100%);
   
   --container-width: 1280px;
   --radius: 16px;
@@ -33,11 +30,10 @@ h4 { color: var(--jacarta); font-weight: 700; }
 
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
 
-/* ============================================
-   HERO PROPORCIONAL (AJUSTE FINO)
-   ============================================ */
 
-/* 1. MENU (Mantido igual) */
+/* ============================================
+   HEADER / MENU
+   ============================================ */
 .header {
     position: absolute;
     top: 0; left: 0; width: 100%;
@@ -65,8 +61,10 @@ h4 { color: var(--jacarta); font-weight: 700; }
 }
 .nav-links a:hover { opacity: 1; color: #fbcf42 !important; }
 
-/* Menu Mobile */
+/* Menu Mobile (Hambúrguer) */
 .mobile-menu-btn { display: none; color: white; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
+
+/* Quando for menor que 992px (Tablets e Celulares), esconde os links e mostra o botão */
 @media(max-width: 992px) {
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
@@ -74,117 +72,33 @@ h4 { color: var(--jacarta); font-weight: 700; }
 
 
 /* ============================================
-   HERO FINAL (ALINHADO À ESQUERDA & COLADO)
+   HERO (BANNER PRINCIPAL) - VERSÃO PC
    ============================================ */
-
-/* 1. O BLOCO PRINCIPAL */
 .hero {
-    /* O mesmo degradê roxo */
     background: linear-gradient(110deg, #1a0538 0%, #5c1755 100%);
-    
-    /* Altura equilibrada */
     min-height: 550px;     
-    
-    /* Configuração para alinhar itens */
     display: flex;
-    align-items: stretch; /* Estica o conteúdo para ocupar a altura toda */
+    align-items: stretch;
     position: relative;
-    padding-top: 100px;    /* Espaço para o menu */
-    padding-bottom: 0;     /* ZERO espaço em baixo */
+    padding-top: 100px;
+    padding-bottom: 0;
     overflow: hidden;
 }
 
-/* 2. O CONTEÚDO (GRID) */
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide: 50% Texto | 50% Imagem */
-    gap: 30px;
-    width: 100%;
-    height: 100%; /* Garante que o grid usa a altura toda disponível */
-}
-
-/* 3. O TEXTO (Alinhado à Esquerda) */
-.hero-text {
-    align-self: center;   /* Centraliza VERTICALMENTE (no meio da altura) */
-    text-align: left;     /* Alinha HORIZONTALMENTE à esquerda (como pediste) */
-    padding-left: 20px;   /* Um respiro na esquerda */
-    z-index: 2;
-}
-
-.hero-text h1 {
-    color: #fbcf42 !important;
-    font-size: 3.2rem;    /* Tamanho bom para iPad/Desktop */
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.hero-text p {
-    color: rgba(255,255,255, 0.95) !important;
-    font-size: 1.15rem;
-    max-width: 550px;     /* Limita a largura para não ficar muito comprido */
-    margin-bottom: 30px;  /* Espaço antes do botão */
-    margin-left: 0;       /* Garante que começa na esquerda */
-}
-
-/* Botão */
-.btn-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #fbcf42;
-    color: #2e0249;
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-.btn-cta:hover { transform: translateY(-3px); background: #fff; }
-
-
-/* 4. A IMAGEM (Aumentada e Colada no Chão) */
-.hero-img {
-    display: flex;
-    justify-content: flex-end; /* Joga para a direita */
-    align-items: flex-end;     /* Joga para BAIXO (Chão) */
-    align-self: end;           /* Reforça: fica no fim do grid */
-    height: 100%;              /* Ocupa a altura toda para poder encostar no fundo */
-}
-
-.hero-img img {
-    max-height: 560px;    /* Aumentei! (antes era 480px). Ajusta aqui se quiseres maior/menor */
-    width: auto;
-    margin-bottom: -1px;  /* Truque para colar na linha final sem deixar frestas */
-    margin-right: 0;
-    filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.2));
-}
-
-
-/* === VERSÃO MOBILE (SÓ PARA TELEMÓVEIS PEQUENOS) === */
-/* Mudámos de 992px para 768px. Assim o iPad entra na regra de PC (Texto à esquerda) */
-/* ============================================
-   CORREÇÃO TOTAL DE ALINHAMENTO (RÉGUA)
-   ============================================ */
-
-/* 1. A Grade Principal */
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide exatamente ao meio */
-    gap: 0; /* Removemos o espaço extra entre eles para controlo total */
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
     width: 100%;
     height: 100%;
-    align-items: center; /* Centraliza verticalmente o texto */
-    padding: 0; /* Garante que não há enchimento extra */
+    align-items: center;
 }
 
-/* 2. O Texto (Travado na Esquerda) */
 .hero-text {
     align-self: center;
     text-align: left;
-    padding-left: 0;      /* ZERO padding para alinhar com o Logo */
-    padding-right: 20px;  /* Espaço para não bater na imagem */
+    padding-left: 0; /* ALINHAMENTO CORRIGIDO */
+    padding-right: 20px;
     z-index: 2;
 }
 
@@ -201,28 +115,92 @@ h4 { color: var(--jacarta); font-weight: 700; }
     font-size: 1.15rem;
     max-width: 550px;
     margin-bottom: 30px;
-    margin-left: 0; /* Garante alinhamento */
+    margin-left: 0;
 }
 
-/* 3. A Imagem (Travada na Direita e no Chão) */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fbcf42;
+    color: #2e0249;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.btn-cta:hover { transform: translateY(-3px); background: #fff; }
+
 .hero-img {
     display: flex;
-    justify-content: flex-end; /* Força a ir para a ponta direita */
-    align-items: flex-end;     /* Força a ir para o chão */
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: end;
     height: 100%;
     width: 100%;
-    padding-right: 0;          /* ZERO padding para alinhar com o Menu */
 }
 
 .hero-img img {
-    max-height: 560px;         /* Tamanho controlado */
+    max-height: 560px;
     width: auto;
-    margin-bottom: -1px;       /* Cola no chão */
-    margin-right: 0;           /* Encosta na parede direita */
+    margin-bottom: -1px;
+    margin-right: 0;
     filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.2));
 }
 
-/* CARROSSEL */
+
+/* ============================================
+   HERO - VERSÃO MOBILE (SÓ < 700px)
+   ============================================ */
+@media (max-width: 700px) {
+    .hero { 
+        text-align: center;
+        min-height: auto;
+        padding-bottom: 40px;
+        align-items: center;
+        display: block;
+    }
+    
+    .hero-content { 
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0;
+    }
+    
+    .hero-text { 
+        text-align: center;
+        padding: 0 20px; 
+        margin-top: 30px;
+        align-self: center;
+        width: 100%;
+    }
+
+    .hero-text h1 { font-size: 2.4rem; }
+    
+    .hero-text p { margin: 0 auto 30px; }
+    
+    .hero-img { 
+        width: 100%; 
+        justify-content: center; 
+        align-items: center;
+        margin-top: 0;
+        display: flex;
+    }
+    
+    .hero-img img { 
+        max-height: 380px;
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+
+
+/* ============================================
+   DEMAIS SEÇÕES (CARROSSEL, ETC)
+   ============================================ */
 .carousel-wrapper { position: relative; width: 100%; margin-top: 30px; }
 .carousel-container { width: 100%; overflow: hidden; }
 .campaign-track { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory; }
