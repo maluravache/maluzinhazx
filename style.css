@@ -162,37 +162,44 @@ h4 { color: var(--jacarta); font-weight: 700; }
 }
 
 
-/* === VERSÃO MOBILE (TELEMÓVEL) === */
-/* Quando a tela for menor que 992px (Tablets em pé e Celulares) */
-@media (max-width: 992px) {
+/* === VERSÃO MOBILE (SÓ PARA TELEMÓVEIS PEQUENOS) === */
+/* Mudámos de 992px para 768px. Assim o iPad entra na regra de PC (Texto à esquerda) */
+@media (max-width: 768px) {
     .hero { 
-        text-align: center; /* No celular, centralizado fica melhor */
+        text-align: center;
         min-height: auto;
-        padding-bottom: 0;
+        padding-bottom: 40px;
+        align-items: center; /* Centraliza no eixo vertical */
     }
     
     .hero-content { 
         grid-template-columns: 1fr; /* Uma coluna só */
-        gap: 40px;
+        gap: 30px;
         display: flex;
         flex-direction: column;
     }
     
     .hero-text { 
-        text-align: center; /* Centraliza texto no mobile */
+        text-align: center; /* Centraliza texto SÓ no telemóvel */
         padding: 0 20px; 
-        margin-top: 20px;
+        margin-top: 30px;
+        align-self: center;
     }
+
+    .hero-text h1 { font-size: 2.4rem; }
     
     .hero-text p { margin: 0 auto 30px; } /* Centraliza parágrafo */
     
     .hero-img { 
         width: 100%; 
         justify-content: center; 
+        align-items: center;
+        margin-top: 0;
     }
     
     .hero-img img { 
-        max-height: 400px; /* Imagem menor no celular */
+        max-height: 380px; /* Imagem menor no telemóvel */
+        margin-bottom: 0;
     }
 }
 
