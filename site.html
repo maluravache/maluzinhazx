@@ -46,7 +46,7 @@
         </div>
     </section>
 
-    <section id="quem-somos" class="section">
+<section id="quem-somos" class="section">
         <div class="container">
             <h2 class="section-title">Quem Somos</h2>
             <p class="section-subtitle">
@@ -61,6 +61,8 @@
             </div>
 
             <div class="carousel-wrapper">
+                <button class="nav-arrow prev-btn"><i class="bi bi-chevron-left"></i></button>
+                
                 <div class="carousel-container">
                     <div class="campaign-track">
                         <div class="camp-card" style="background: var(--roxo-escuro);">
@@ -88,8 +90,11 @@
                         </div>
                     </div>
                 </div>
-                <p class="drag-hint"><i class="bi bi-arrow-left-right"></i> Arraste para ver mais</p>
+
+                <button class="nav-arrow next-btn"><i class="bi bi-chevron-right"></i></button>
             </div>
+            
+            <p class="drag-hint"><i class="bi bi-arrow-left-right"></i> Arraste ou use as setas para ver mais</p>
         </div>
     </section>
 
@@ -319,10 +324,25 @@
         Sair Rápido <i class="bi bi-box-arrow-right"></i>
     </a>
 
-    <script>
+<script>
+        // Menu Mobile
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
+
+        // Lógica das Setas do Carrossel
+        const track = document.querySelector('.campaign-track');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        if(track && prevBtn && nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+        }
     </script>
 
 </body>

@@ -191,3 +191,45 @@ h4, .section-subtitle { color: var(--text); /* Texto corrido escuro */ font-weig
 .fab-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 100; }
 .fab-sair { position: fixed; bottom: 20px; left: 20px; background: var(--vermelho-discreto); color: white; padding: 12px 20px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
 .fab-sair:hover { transform: translateY(-3px); background: #7a1e20; }
+
+/* ESTILO DAS SETAS DO CARROSSEL */
+.carousel-wrapper { 
+    position: relative; 
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #eee;
+    color: var(--jacarta);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: none; /* Escondido no celular */
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.nav-arrow:hover {
+    background: var(--amarelo);
+    color: var(--roxo-escuro);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn { left: -20px; }
+.next-btn { right: -20px; }
+
+/* Mostrar setas apenas no computador */
+@media (min-width: 768px) {
+    .nav-arrow { display: flex; }
+    /* Ajuste para o carrossel não cortar a sombra dos cards */
+    .campaign-track { padding: 10px 5px 30px 5px; }
+}
