@@ -73,52 +73,58 @@ h4 { color: var(--jacarta); font-weight: 700; }
 }
 
 
-/* 2. O HERO (Mais compacto e alinhado) */
+/* ============================================
+   HERO FINAL (ALINHADO À ESQUERDA & COLADO)
+   ============================================ */
+
+/* 1. O BLOCO PRINCIPAL */
 .hero {
-    /* Gradiente Roxo Profundo */
+    /* O mesmo degradê roxo */
     background: linear-gradient(110deg, #1a0538 0%, #5c1755 100%);
     
-    /* MUDANÇA 1: Diminuí a altura mínima de 680px para 500px */
-    min-height: 500px;     
+    /* Altura equilibrada */
+    min-height: 550px;     
     
+    /* Configuração para alinhar itens */
     display: flex;
-    align-items: flex-end; /* MUDANÇA 2: Força tudo a ir para o "chão" */
+    align-items: stretch; /* Estica o conteúdo para ocupar a altura toda */
     position: relative;
     padding-top: 100px;    /* Espaço para o menu */
-    padding-bottom: 0;     /* ZERO espaço em baixo para colar a imagem */
+    padding-bottom: 0;     /* ZERO espaço em baixo */
     overflow: hidden;
 }
 
+/* 2. O CONTEÚDO (GRID) */
 .hero-content {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Mais espaço para texto, menos para imagem */
-    gap: 20px;
-    height: 100%;
+    grid-template-columns: 1fr 1fr; /* Divide: 50% Texto | 50% Imagem */
+    gap: 30px;
     width: 100%;
-    align-items: center; /* O texto fica no centro verticalmente */
+    height: 100%; /* Garante que o grid usa a altura toda disponível */
 }
 
-/* Texto do Hero */
+/* 3. O TEXTO (Alinhado à Esquerda) */
 .hero-text {
-    align-self: center; /* Garante que o texto fica no meio da tela */
-    padding-bottom: 40px; /* Um pequeno empurrão para cima para equilibrar */
+    align-self: center;   /* Centraliza VERTICALMENTE (no meio da altura) */
+    text-align: left;     /* Alinha HORIZONTALMENTE à esquerda (como pediste) */
+    padding-left: 20px;   /* Um respiro na esquerda */
     z-index: 2;
 }
 
 .hero-text h1 {
-    color: #fbcf42 !important; /* Amarelo Oficial */
-    font-size: 3rem;           /* Diminuí um pouco a fonte para ficar proporcional */
+    color: #fbcf42 !important;
+    font-size: 3.2rem;    /* Tamanho bom para iPad/Desktop */
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .hero-text p {
     color: rgba(255,255,255, 0.95) !important;
-    font-size: 1.1rem;
-    max-width: 500px;
-    margin-bottom: 25px;
-    line-height: 1.5;
+    font-size: 1.15rem;
+    max-width: 550px;     /* Limita a largura para não ficar muito comprido */
+    margin-bottom: 30px;  /* Espaço antes do botão */
+    margin-left: 0;       /* Garante que começa na esquerda */
 }
 
 /* Botão */
@@ -128,7 +134,7 @@ h4 { color: var(--jacarta); font-weight: 700; }
     gap: 10px;
     background-color: #fbcf42;
     color: #2e0249;
-    padding: 12px 30px;
+    padding: 14px 32px;
     border-radius: 50px;
     font-weight: 700;
     text-decoration: none;
@@ -138,33 +144,56 @@ h4 { color: var(--jacarta); font-weight: 700; }
 .btn-cta:hover { transform: translateY(-3px); background: #fff; }
 
 
-/* 3. A IMAGEM (Colada no chão e proporcional) */
+/* 4. A IMAGEM (Aumentada e Colada no Chão) */
 .hero-img {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end; /* Força a imagem para baixo */
-    height: 100%;
-    align-self: end;       /* Garante que o bloco da imagem encosta no fundo */
+    justify-content: flex-end; /* Joga para a direita */
+    align-items: flex-end;     /* Joga para BAIXO (Chão) */
+    align-self: end;           /* Reforça: fica no fim do grid */
+    height: 100%;              /* Ocupa a altura toda para poder encostar no fundo */
 }
 
 .hero-img img {
-    max-height: 480px;    /* MUDANÇA 3: Limita a altura da imagem para não estourar */
+    max-height: 560px;    /* Aumentei! (antes era 480px). Ajusta aqui se quiseres maior/menor */
     width: auto;
-    margin-bottom: -1px;  /* Truque para remover qualquer linhazinha roxa que sobre */
+    margin-bottom: -1px;  /* Truque para colar na linha final sem deixar frestas */
+    margin-right: 0;
     filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.2));
 }
 
-/* === AJUSTES MOBILE === */
+
+/* === VERSÃO MOBILE (TELEMÓVEL) === */
+/* Quando a tela for menor que 992px (Tablets em pé e Celulares) */
 @media (max-width: 992px) {
-    .hero { min-height: auto; padding-bottom: 0; text-align: center; align-items: center; }
-    .hero-content { grid-template-columns: 1fr; gap: 30px; display: flex; flex-direction: column; }
+    .hero { 
+        text-align: center; /* No celular, centralizado fica melhor */
+        min-height: auto;
+        padding-bottom: 0;
+    }
     
-    .hero-text { padding: 0 20px; margin-top: 20px; }
-    .hero-text h1 { font-size: 2.2rem; }
-    .hero-text p { margin: 0 auto 20px; }
+    .hero-content { 
+        grid-template-columns: 1fr; /* Uma coluna só */
+        gap: 40px;
+        display: flex;
+        flex-direction: column;
+    }
     
-    .hero-img { width: 100%; justify-content: center; margin-top: 0; }
-    .hero-img img { max-height: 350px; width: auto; }
+    .hero-text { 
+        text-align: center; /* Centraliza texto no mobile */
+        padding: 0 20px; 
+        margin-top: 20px;
+    }
+    
+    .hero-text p { margin: 0 auto 30px; } /* Centraliza parágrafo */
+    
+    .hero-img { 
+        width: 100%; 
+        justify-content: center; 
+    }
+    
+    .hero-img img { 
+        max-height: 400px; /* Imagem menor no celular */
+    }
 }
 
 /* CARROSSEL */
