@@ -33,145 +33,140 @@ h4 { color: var(--jacarta); font-weight: 700; }
 
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
 
-/* === ATUALIZAÇÃO: MENU E HERO (Copie só daqui para baixo) === */
+/* ============================================
+   HERO ESTILO "MODELO IA" (ATUALIZADO)
+   ============================================ */
 
-/* 1. Menu Centralizado e Transparente */
-.header { 
-    position: absolute; /* Fica por cima do Hero */
-    top: 0; left: 0; width: 100%; 
-    padding: 15px 0; z-index: 1000; 
+/* 1. MENU (Mantendo a estrutura limpa e branca) */
+.header {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
     background: transparent;
 }
 
-.header-row { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: relative; /* Necessário para o centro funcionar */
-}
-
-.header__logo img { height: 90px; width: auto; } /* Logo Grande */
-
-.nav-links { 
-    display: flex; 
-    gap: 30px; 
-    align-items: center; 
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); /* Centraliza o menu na tela */
-}
-
-/* ============================================
-   HERO & BOTÃO (CORRIGIDOS)
-   ============================================ */
-
-/* 1. O Estilo do Botão (Isto estava a faltar!) */
-.btn-cta {
-    display: inline-flex;
+.header-row {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    background-color: var(--amarelo); /* Fundo Amarelo */
-    color: var(--jacarta);            /* Texto Roxo Escuro */
-    padding: 14px 32px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-transform: uppercase;        /* Letras maiúsculas ficam mais modernas */
-    box-shadow: 0 4px 15px rgba(251, 207, 66, 0.4); /* Sombra suave */
-    transition: transform 0.2s ease;
-    margin-top: 25px;
+}
+
+.header__logo img { height: 80px; width: auto; }
+
+/* Links do Menu */
+.nav-links a {
+    color: #FFFFFF !important; /* Branco Puro */
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-left: 25px;
     text-decoration: none;
+    opacity: 0.9;
+    transition: 0.3s;
 }
 
-.btn-cta:hover {
-    transform: translateY(-3px);      /* Sobe um pouquinho ao passar o mouse */
-    background-color: #ffd75e;        /* Amarelo mais claro */
-    color: var(--jacarta);
-    box-shadow: 0 6px 20px rgba(251, 207, 66, 0.6);
+.nav-links a:hover {
+    opacity: 1;
+    color: #fbcf42 !important; /* Amarelo ao passar o rato */
 }
 
-/* 2. O Banner Principal (Hero) */
+/* Mobile Menu */
+.mobile-menu-btn { display: none; color: white; font-size: 2rem; background: none; border: none; cursor: pointer; }
+@media(max-width: 992px) {
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+}
+
+/* 2. O HERO (Fundo Profundo + Imagem Grande) */
 .hero {
-    background: linear-gradient(135deg, #2E0249 0%, #570A57 100%);
-    padding-top: 130px;    /* Espaço para o menu não tapar o texto */
-    padding-bottom: 50px;  /* Espaço embaixo para respirar no celular */
+    /* O Gradiente "IA": Roxo quase preto indo para Roxo Vinho */
+    background: linear-gradient(110deg, #1a0538 0%, #5c1755 100%);
+    
+    min-height: 680px;      /* Aumentei a altura para a imagem caber bem */
+    display: flex;
+    align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: hidden;       /* Importante: Corta o excesso da imagem se ela for muito grande */
+    padding-top: 80px;
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr; /* Uma coluna no celular */
-    gap: 40px;
+    grid-template-columns: 1fr 1fr; /* Divide meio a meio */
+    gap: 0;
     align-items: center;
-    text-align: center;         /* Centraliza texto no celular */
+    width: 100%;
+    height: 100%;
+}
+
+/* Texto do Hero */
+.hero-text {
+    z-index: 2; /* Garante que o texto fica por cima de tudo */
+    padding-right: 20px;
 }
 
 .hero-text h1 {
-    color: white;
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin-bottom: 15px;
+    color: #fbcf42 !important; /* O Amarelo da referência */
+    font-size: 4rem;           /* Fonte BEM GRANDE como na imagem */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
 }
 
 .hero-text p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    max-width: 90%;
-    margin: 0 auto; /* Centraliza o parágrafo */
+    color: rgba(255,255,255, 0.95) !important;
+    font-size: 1.2rem;
+    max-width: 480px;
+    margin-bottom: 35px;
+    line-height: 1.5;
 }
 
-/* Imagem no Celular */
+/* Botão (Mantive amarelo para combinar com o título) */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fbcf42;
+    color: #2e0249;
+    padding: 15px 35px;
+    border-radius: 50px; /* Arredondado */
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra para destacar */
+    transition: transform 0.3s;
+}
+.btn-cta:hover { transform: translateY(-3px); background: #fff; }
+
+
+/* 3. A IMAGEM GIGANTE (O Segredo do Layout) */
 .hero-img {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    position: relative;
 }
 
 .hero-img img {
-    max-width: 80%;  /* Evita que fique gigante */
-    height: auto;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); /* Sombra para destacar do fundo */
+    width: 110%;      /* Aumenta a imagem para 110% do tamanho do espaço dela */
+    max-width: none;  /* Remove limites */
+    margin-right: -5%; /* Puxa um pouquinho para fora da tela na direita */
+    margin-bottom: -40px; /* Puxa para baixo para "nascer" do rodapé */
+    
+    /* Dica: Se a imagem cortar a cabeça, diminua o "margin-bottom" */
 }
 
-/* === VERSÃO COMPUTADOR (Telas Maiores) === */
-@media (min-width: 768px) {
-    .hero {
-        padding-bottom: 0;     /* No PC, colamos a imagem no chão */
-        min-height: 650px;     /* Altura mínima para ficar imponente */
-        display: flex;
-        align-items: flex-end; /* Alinha tudo pela base */
-    }
-
-    .hero-content {
-        grid-template-columns: 1.2fr 0.8fr; /* Divide: Texto maior | Imagem menor */
-        text-align: left;      /* Texto alinhado à esquerda */
-        align-items: center;   /* Centraliza verticalmente */
-        height: 100%;
-        padding-bottom: 40px;
-    }
-
-    .hero-text h1 {
-        font-size: 3.5rem;     /* Aumenta muito a fonte */
-    }
-
-    .hero-text p {
-        font-size: 1.25rem;
-        margin: 0;             /* Remove a centralização */
-        max-width: 600px;
-    }
-
-    /* Imagem no PC */
-    .hero-img {
-        justify-content: flex-end;
-        align-items: flex-end;
-        height: 100%;
-    }
-
-    .hero-img img {
-        max-width: 100%;
-        max-height: 550px;     /* Controla a altura */
-        margin-bottom: -5px;   /* Truque para colar perfeitamente no rodapé da seção */
-    }
+/* === AJUSTES PARA TELEMÓVEL (MOBILE) === */
+@media (max-width: 992px) {
+    .hero { min-height: auto; padding-bottom: 40px; text-align: center; }
+    .hero-content { grid-template-columns: 1fr; gap: 40px; } /* Uma coluna */
+    
+    .hero-text h1 { font-size: 2.5rem; } /* Fonte menor no celular */
+    .hero-text p { margin: 0 auto 30px; } /* Centraliza texto */
+    .hero-text { padding-right: 0; display: flex; flex-direction: column; align-items: center; }
+    
+    .hero-img { justify-content: center; margin-top: 20px; }
+    .hero-img img { width: 90%; margin: 0; } /* Imagem normal no celular */
 }
 
 /* CARROSSEL */
