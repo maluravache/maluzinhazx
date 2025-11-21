@@ -183,3 +183,96 @@ h4 { color: var(--jacarta); font-weight: 700; }
 .fab-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 100; }
 .fab-sair { position: fixed; bottom: 20px; left: 20px; background: var(--vermelho-discreto); color: white; padding: 12px 20px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
 .fab-sair:hover { transform: translateY(-3px); background: #7a1e20; }
+
+
+/* === ATUALIZAÇÃO: MENU E HERO (Copie só daqui para baixo) === */
+
+/* 1. Menu Centralizado e Transparente */
+.header { 
+    position: absolute; /* Fica por cima do Hero */
+    top: 0; left: 0; width: 100%; 
+    padding: 15px 0; z-index: 1000; 
+    background: transparent;
+}
+
+.header-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; /* Necessário para o centro funcionar */
+}
+
+.header__logo img { height: 90px; width: auto; } /* Logo Grande */
+
+.nav-links { 
+    display: flex; 
+    gap: 30px; 
+    align-items: center; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); /* Centraliza o menu na tela */
+}
+
+/* 2. Hero Roxo Profundo e Imagem Grande */
+.hero {
+    /* Novo Degradê Roxo */
+    background: linear-gradient(135deg, #2E0249 0%, #570A57 100%);
+    min-height: auto;
+    padding-top: 140px; /* Espaço para o menu */
+    padding-bottom: 0;  /* ZERO margem embaixo (O segredo para colar) */
+    border-radius: 0;   /* Reto */
+    color: white;
+    display: flex;
+    align-items: flex-end; /* Força tudo para o chão */
+    overflow: hidden;
+}
+
+.hero-content { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.hero-text { 
+    padding-bottom: 60px; 
+    text-align: left; 
+}
+
+/* Configuração da Imagem da Mulher */
+.hero-img { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    width: 100%; 
+    height: 100%;
+}
+
+.hero-img img { 
+    max-height: 400px; 
+    width: auto; 
+    margin-bottom: -1px; /* Cola no chão */
+    display: block;
+}
+
+/* AJUSTE PARA COMPUTADOR (Aumentar imagem e alinhar) */
+@media(min-width: 768px) { 
+    .hero-content { 
+        grid-template-columns: 1.2fr 0.8fr; /* Divide a tela */
+        align-items: flex-end; /* Alinha texto e imagem por baixo */
+    } 
+    
+    .hero { 
+        padding-top: 150px; 
+    }
+    
+    .hero-img { 
+        justify-content: flex-end; 
+    } 
+    
+    .hero-img img { 
+        max-height: 580px; /* Aumentei para ficar gigante e proporcional */
+        margin-right: 0;   /* Cola na direita */
+    } 
+}
