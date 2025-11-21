@@ -48,19 +48,66 @@ h4 { color: var(--jacarta); font-weight: 700; }
     .header__logo img { height: 60px; }
 }
 
-/* HERO */
-.hero { background: var(--gradient-hero); min-height: auto; padding-top: 140px; padding-bottom: 0; border-radius: 0; color: white; display: flex; align-items: flex-end; overflow: hidden; }
-.hero-content { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; width: 100%; }
-@media(min-width: 768px) { .hero-content { grid-template-columns: 1.2fr 0.8fr; } .hero { padding-top: 160px; } }
-.hero-text { padding-bottom: 60px; text-align: left; }
-.hero-text h1 { color: var(--amarelo); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 15px; text-align: left; }
-.hero-text p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 25px; max-width: 480px; color: white; }
-.btn-cta { background: var(--amarelo); color: var(--jacarta); padding: 12px 30px; border-radius: 50px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 15px rgba(0,0,0,0.15); }
-.btn-cta:hover { transform: translateY(-3px); background: #fff; }
-.hero-img { display: flex; justify-content: center; align-items: flex-end; width: 100%; }
-.hero-img img { max-height: 400px; width: auto; margin-bottom: -1px; }
-@media(min-width: 768px) { .hero-img { justify-content: flex-end; } .hero-img img { max-height: 500px; margin-right: 20px; } }
+/* === HERO (Ajuste Fino da Imagem e Altura) === */
 
+.hero { 
+    background: var(--gradient-hero); 
+    min-height: auto; 
+    padding-top: 140px; /* Espaço para o menu não ficar em cima */
+    padding-bottom: 0;  /* ZERO espaço embaixo para a mulher colar no chão */
+    border-radius: 0; 
+    color: white; 
+    display: flex; 
+    align-items: flex-end; /* Alinha tudo pela base */
+    overflow: hidden; 
+}
+
+.hero-content { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+    align-items: center; 
+    width: 100%; 
+}
+
+.hero-text { 
+    padding-bottom: 60px; /* Um respiro para o texto */
+    text-align: left; 
+}
+
+/* Ajuste da Imagem */
+.hero-img { 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; 
+    width: 100%; 
+    line-height: 0; 
+}
+
+.hero-img img { 
+    max-height: 400px; 
+    width: auto; 
+    margin-bottom: 0; 
+    display: block;
+}
+
+/* NO COMPUTADOR (Onde a mágica acontece) */
+@media(min-width: 768px) { 
+    .hero-content { 
+        grid-template-columns: 1.2fr 0.8fr; 
+        align-items: flex-end; /* Alinha texto e imagem por baixo */
+    } 
+    .hero { 
+        padding-top: 120px; /* Altura total ajustada */
+    }
+    .hero-img { 
+        justify-content: flex-end; 
+    } 
+    .hero-img img { 
+        max-height: 600px; /* Mulher bem GRANDE */
+        margin-right: 0;   /* Colada na direita */
+    } 
+}
 /* CARROSSEL */
 .carousel-wrapper { position: relative; width: 100%; margin-top: 30px; }
 .carousel-container { width: 100%; overflow: hidden; }
