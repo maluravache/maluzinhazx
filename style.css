@@ -164,43 +164,62 @@ h4 { color: var(--jacarta); font-weight: 700; }
 
 /* === VERSÃO MOBILE (SÓ PARA TELEMÓVEIS PEQUENOS) === */
 /* Mudámos de 992px para 768px. Assim o iPad entra na regra de PC (Texto à esquerda) */
-@media (max-width: 768px) {
-    .hero { 
-        text-align: center;
-        min-height: auto;
-        padding-bottom: 40px;
-        align-items: center; /* Centraliza no eixo vertical */
-    }
-    
-    .hero-content { 
-        grid-template-columns: 1fr; /* Uma coluna só */
-        gap: 30px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .hero-text { 
-        text-align: center; /* Centraliza texto SÓ no telemóvel */
-        padding: 0 20px; 
-        margin-top: 30px;
-        align-self: center;
-    }
+/* ============================================
+   CORREÇÃO TOTAL DE ALINHAMENTO (RÉGUA)
+   ============================================ */
 
-    .hero-text h1 { font-size: 2.4rem; }
-    
-    .hero-text p { margin: 0 auto 30px; } /* Centraliza parágrafo */
-    
-    .hero-img { 
-        width: 100%; 
-        justify-content: center; 
-        align-items: center;
-        margin-top: 0;
-    }
-    
-    .hero-img img { 
-        max-height: 380px; /* Imagem menor no telemóvel */
-        margin-bottom: 0;
-    }
+/* 1. A Grade Principal */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide exatamente ao meio */
+    gap: 0; /* Removemos o espaço extra entre eles para controlo total */
+    width: 100%;
+    height: 100%;
+    align-items: center; /* Centraliza verticalmente o texto */
+    padding: 0; /* Garante que não há enchimento extra */
+}
+
+/* 2. O Texto (Travado na Esquerda) */
+.hero-text {
+    align-self: center;
+    text-align: left;
+    padding-left: 0;      /* ZERO padding para alinhar com o Logo */
+    padding-right: 20px;  /* Espaço para não bater na imagem */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    color: #fbcf42 !important;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: rgba(255,255,255, 0.95) !important;
+    font-size: 1.15rem;
+    max-width: 550px;
+    margin-bottom: 30px;
+    margin-left: 0; /* Garante alinhamento */
+}
+
+/* 3. A Imagem (Travada na Direita e no Chão) */
+.hero-img {
+    display: flex;
+    justify-content: flex-end; /* Força a ir para a ponta direita */
+    align-items: flex-end;     /* Força a ir para o chão */
+    height: 100%;
+    width: 100%;
+    padding-right: 0;          /* ZERO padding para alinhar com o Menu */
+}
+
+.hero-img img {
+    max-height: 560px;         /* Tamanho controlado */
+    width: auto;
+    margin-bottom: -1px;       /* Cola no chão */
+    margin-right: 0;           /* Encosta na parede direita */
+    filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.2));
 }
 
 /* CARROSSEL */
