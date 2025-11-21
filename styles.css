@@ -799,6 +799,8 @@ div.w-row {
   box-sizing: border-box;
   margin-left: -10px;
   margin-right: -10px;
+
+  display: flex;
 }
 
 div.w-row:after {
@@ -888,6 +890,7 @@ p.footer-description-failory {
   font-weight: 600;
   letter-spacing: .5px;
   line-height: 1.5em;
+  max-width: 70%;
 }
 
 br {
