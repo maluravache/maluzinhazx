@@ -34,14 +34,14 @@ h4 { color: var(--jacarta); font-weight: 700; }
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
 
 /* ============================================
-   HERO ESTILO "MODELO IA" (ATUALIZADO)
+   HERO PROPORCIONAL (AJUSTE FINO)
    ============================================ */
 
-/* 1. MENU (Mantendo a estrutura limpa e branca) */
+/* 1. MENU (Mantido igual) */
 .header {
     position: absolute;
     top: 0; left: 0; width: 100%;
-    padding: 20px 0;
+    padding: 15px 0;
     z-index: 1000;
     background: transparent;
 }
@@ -52,121 +52,119 @@ h4 { color: var(--jacarta); font-weight: 700; }
     align-items: center;
 }
 
-.header__logo img { height: 80px; width: auto; }
+.header__logo img { height: 75px; width: auto; }
 
-/* Links do Menu */
 .nav-links a {
-    color: #FFFFFF !important; /* Branco Puro */
-    font-size: 0.95rem;
+    color: #FFFFFF !important;
+    font-size: 0.9rem;
     font-weight: 500;
     margin-left: 25px;
     text-decoration: none;
     opacity: 0.9;
     transition: 0.3s;
 }
+.nav-links a:hover { opacity: 1; color: #fbcf42 !important; }
 
-.nav-links a:hover {
-    opacity: 1;
-    color: #fbcf42 !important; /* Amarelo ao passar o rato */
-}
-
-/* Mobile Menu */
-.mobile-menu-btn { display: none; color: white; font-size: 2rem; background: none; border: none; cursor: pointer; }
+/* Menu Mobile */
+.mobile-menu-btn { display: none; color: white; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
 @media(max-width: 992px) {
     .nav-links { display: none; }
     .mobile-menu-btn { display: block; }
 }
 
-/* 2. O HERO (Fundo Profundo + Imagem Grande) */
+
+/* 2. O HERO (Mais compacto e alinhado) */
 .hero {
-    /* O Gradiente "IA": Roxo quase preto indo para Roxo Vinho */
+    /* Gradiente Roxo Profundo */
     background: linear-gradient(110deg, #1a0538 0%, #5c1755 100%);
     
-    min-height: 680px;      /* Aumentei a altura para a imagem caber bem */
+    /* MUDANÇA 1: Diminuí a altura mínima de 680px para 500px */
+    min-height: 500px;     
+    
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* MUDANÇA 2: Força tudo a ir para o "chão" */
     position: relative;
-    overflow: hidden;       /* Importante: Corta o excesso da imagem se ela for muito grande */
-    padding-top: 80px;
+    padding-top: 100px;    /* Espaço para o menu */
+    padding-bottom: 0;     /* ZERO espaço em baixo para colar a imagem */
+    overflow: hidden;
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide meio a meio */
-    gap: 0;
-    align-items: center;
-    width: 100%;
+    grid-template-columns: 1.2fr 0.8fr; /* Mais espaço para texto, menos para imagem */
+    gap: 20px;
     height: 100%;
+    width: 100%;
+    align-items: center; /* O texto fica no centro verticalmente */
 }
 
 /* Texto do Hero */
 .hero-text {
-    z-index: 2; /* Garante que o texto fica por cima de tudo */
-    padding-right: 20px;
+    align-self: center; /* Garante que o texto fica no meio da tela */
+    padding-bottom: 40px; /* Um pequeno empurrão para cima para equilibrar */
+    z-index: 2;
 }
 
 .hero-text h1 {
-    color: #fbcf42 !important; /* O Amarelo da referência */
-    font-size: 4rem;           /* Fonte BEM GRANDE como na imagem */
+    color: #fbcf42 !important; /* Amarelo Oficial */
+    font-size: 3rem;           /* Diminuí um pouco a fonte para ficar proporcional */
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero-text p {
     color: rgba(255,255,255, 0.95) !important;
-    font-size: 1.2rem;
-    max-width: 480px;
-    margin-bottom: 35px;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin-bottom: 25px;
     line-height: 1.5;
 }
 
-/* Botão (Mantive amarelo para combinar com o título) */
+/* Botão */
 .btn-cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     background-color: #fbcf42;
     color: #2e0249;
-    padding: 15px 35px;
-    border-radius: 50px; /* Arredondado */
+    padding: 12px 30px;
+    border-radius: 50px;
     font-weight: 700;
     text-decoration: none;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra para destacar */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     transition: transform 0.3s;
 }
 .btn-cta:hover { transform: translateY(-3px); background: #fff; }
 
 
-/* 3. A IMAGEM GIGANTE (O Segredo do Layout) */
+/* 3. A IMAGEM (Colada no chão e proporcional) */
 .hero-img {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-end; /* Força a imagem para baixo */
     height: 100%;
-    position: relative;
+    align-self: end;       /* Garante que o bloco da imagem encosta no fundo */
 }
 
 .hero-img img {
-    width: 110%;      /* Aumenta a imagem para 110% do tamanho do espaço dela */
-    max-width: none;  /* Remove limites */
-    margin-right: -5%; /* Puxa um pouquinho para fora da tela na direita */
-    margin-bottom: -40px; /* Puxa para baixo para "nascer" do rodapé */
-    
-    /* Dica: Se a imagem cortar a cabeça, diminua o "margin-bottom" */
+    max-height: 480px;    /* MUDANÇA 3: Limita a altura da imagem para não estourar */
+    width: auto;
+    margin-bottom: -1px;  /* Truque para remover qualquer linhazinha roxa que sobre */
+    filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.2));
 }
 
-/* === AJUSTES PARA TELEMÓVEL (MOBILE) === */
+/* === AJUSTES MOBILE === */
 @media (max-width: 992px) {
-    .hero { min-height: auto; padding-bottom: 40px; text-align: center; }
-    .hero-content { grid-template-columns: 1fr; gap: 40px; } /* Uma coluna */
+    .hero { min-height: auto; padding-bottom: 0; text-align: center; align-items: center; }
+    .hero-content { grid-template-columns: 1fr; gap: 30px; display: flex; flex-direction: column; }
     
-    .hero-text h1 { font-size: 2.5rem; } /* Fonte menor no celular */
-    .hero-text p { margin: 0 auto 30px; } /* Centraliza texto */
-    .hero-text { padding-right: 0; display: flex; flex-direction: column; align-items: center; }
+    .hero-text { padding: 0 20px; margin-top: 20px; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text p { margin: 0 auto 20px; }
     
-    .hero-img { justify-content: center; margin-top: 20px; }
-    .hero-img img { width: 90%; margin: 0; } /* Imagem normal no celular */
+    .hero-img { width: 100%; justify-content: center; margin-top: 0; }
+    .hero-img img { max-height: 350px; width: auto; }
 }
 
 /* CARROSSEL */
