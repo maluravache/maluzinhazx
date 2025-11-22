@@ -2,10 +2,16 @@
    ESTILO GERAL
    ============================================ */
 :root {
-  --jacarta: #422e6a; --roxo-claro: #7e144f; --roxo-escuro: #55214b;
-  --amarelo: #fbcf42; --vermelho-discreto: #9e2a2b; 
-  --text: #2B2B2B; --white: #FFFFFF; --paper: #F7F6F9;       
-  --container-width: 1280px; --radius: 16px;
+  --jacarta: #422e6a; 
+  --roxo-claro: #7e144f; 
+  --roxo-escuro: #55214b;
+  --amarelo: #fbcf42; 
+  --vermelho-discreto: #9e2a2b; 
+  --text: #2B2B2B; 
+  --white: #FFFFFF; 
+  --paper: #F7F6F9;       
+  --container-width: 1280px; 
+  --radius: 16px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +32,10 @@ h3 { color: var(--roxo-claro); font-weight: 700; }
 .nav-links a { color: #FFFFFF !important; font-size: 0.9rem; font-weight: 500; margin-left: 25px; opacity: 0.9; }
 .nav-links a:hover { opacity: 1; color: #fbcf42 !important; }
 .mobile-menu-btn { display: none; color: white; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
-@media(max-width: 992px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } }
+@media(max-width: 992px) { 
+    .nav-links { display: none; } 
+    .mobile-menu-btn { display: block; } 
+}
 
 /* === HERO (PC) - ALINHADO À ESQUERDA === */
 .hero {
@@ -46,7 +55,7 @@ h3 { color: var(--roxo-claro); font-weight: 700; }
     height: 100%;
     align-items: center;
 }
-/* Força alinhamento à esquerda, anulando o centro global */
+/* Texto à esquerda no Desktop */
 .hero-text {
     align-self: center;
     text-align: left !important; 
@@ -76,7 +85,6 @@ h3 { color: var(--roxo-claro); font-weight: 700; }
 .hero-img img { max-height: 560px; width: auto; margin-bottom: -1px; margin-right: 0; filter: drop-shadow(-10px 0 20px rgba(0,0,0,0.2)); }
 
 /* === HERO MOBILE (SÓ < 700px) === */
-/* O iPad (768px) vai ignorar isto e usar o de cima (Esquerda) */
 @media (max-width: 700px) {
     .hero { text-align: center !important; min-height: auto; padding-bottom: 40px; align-items: center; display: block; }
     .hero-content { display: flex; flex-direction: column; gap: 30px; padding: 0; }
@@ -93,10 +101,12 @@ h3 { color: var(--roxo-claro); font-weight: 700; }
 .section { padding: 60px 0; }
 .section--bg { background: white; }
 .service-cards-grid, .denuncia-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 30px; }
+
 @media (min-width: 768px) { 
     .service-cards-grid { grid-template-columns: repeat(3, 1fr); } 
     .denuncia-grid { grid-template-columns: 1fr 1fr; align-items: start; } 
 }
+
 .service-card-detailed, .content-box, .lei-card { 
     background: var(--white); 
     padding: 25px; 
@@ -115,20 +125,29 @@ h3 { color: var(--roxo-claro); font-weight: 700; }
 .item-detalhe strong { display: block; color: var(--roxo-escuro); font-weight: 700; }
 .item-detalhe p { display: flex; align-items: center; gap: 8px; color: var(--text); font-size: 0.9rem; }
 
+/* CARROSSEL E LISTAS */
 .carousel-wrapper { position: relative; width: 100%; margin-top: 30px; }
 .campaign-track { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
 .camp-card { flex: 0 0 280px; min-height: 180px; padding: 25px; border-radius: var(--radius); color: white; display: flex; flex-direction: column; justify-content: space-between; }
 .info-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; }
 .badge-item { background: white; border: 1px solid var(--roxo-claro); color: var(--roxo-claro); padding: 10px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
 .emergency-disques-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; }
 .disque-btn { background: var(--jacarta); color: white; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+
 .butique-wrapper { background: white; padding: 30px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .btn-butique-doar { background: var(--jacarta); color: white; padding: 10px 25px; border-radius: 50px; font-weight: 700; }
 .btn-cta-secondary { display: inline-block; margin-top: 30px; border: 2px solid var(--jacarta); color: var(--jacarta); padding: 10px 25px; border-radius: 50px; font-weight: 700; }
+.donation-list { list-style: none; display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+.donation-list li { background: var(--paper); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
+
+/* RODAPÉ */
 .footer { background: var(--roxo-escuro); color: white; padding: 60px 0 0; font-size: 0.9rem; text-align: center; }
 .footer-content { display: flex; flex-direction: column; align-items: center; gap: 30px; text-align: center; }
 .footer-logos { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
 .footer-logos img { height: 50px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
 .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; margin-top: 20px; }
+
+/* FLUTUANTES */
 .fab-whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 32px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 100; }
 .fab-sair { position: fixed; bottom: 20px; left: 20px; background: var(--vermelho-discreto); color: white; padding: 12px 20px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 100; display: flex; align-items: center; gap: 8px; }

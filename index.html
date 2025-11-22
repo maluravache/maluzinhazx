@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=separado_final">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -66,18 +66,18 @@
                     <div class="campaign-track">
                         <div class="camp-card" style="background: var(--roxo-escuro);">
                             <div class="card-top"><i class="bi bi-heart"></i><h3>Acolha Uma Mulher</h3></div>
-                            <a href="https://www.instagram.com/p/DHGqlnIRtze" target="_blank">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                            <a href="#" target="_blank">Saiba mais <i class="bi bi-arrow-right"></i></a>
                         </div>
                         <div class="camp-card" style="background: var(--roxo-claro);">
                             <div class="card-top"><i class="bi bi-droplet"></i><h3>Dignidade Menstrual</h3></div>
-                            <a href="https://www.gov.br/saude/pt-br/composicao/saps/dignidade-menstrual" target="_blank">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                            <a href="#" target="_blank">Saiba mais <i class="bi bi-arrow-right"></i></a>
                         </div>
                         <div class="camp-card" style="background: var(--amarelo); color: var(--roxo-escuro);">
                             <div class="card-top"><i class="bi bi-exclamation-triangle"></i><h3 style="color: var(--roxo-escuro);">Tipos de Violência</h3></div>
-                            <a href="https://www.instagram.com/p/DQ7jWXIEYdK" target="_blank" style="color: var(--roxo-escuro);">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                            <a href="#" target="_blank" style="color: var(--roxo-escuro);">Saiba mais <i class="bi bi-arrow-right"></i></a>
                         </div>
                         <div class="camp-card camp-card--video">
-                            <a href="https://www.youtube.com/watch?v=1L6HB97lbrQ" target="_blank" class="video-link">
+                            <a href="#" target="_blank" class="video-link">
                                 <i class="bi bi-play-circle"></i> <h3>Vídeo Institucional</h3>
                             </a>
                         </div>
@@ -148,33 +148,9 @@
         </div>
     </section>
 
-    <section id="leis" class="section section--bg">
-        <div class="container">
-            <h2 class="section-title">Conheça Seus Direitos</h2>
-            <div class="leis-grid">
-                <div class="lei-card">
-                    <h3>Lei Maria da Penha</h3>
-                    <p>Estipula a punição adequada para coibir atos de violência doméstica contra a mulher.</p>
-                </div>
-                <div class="lei-card">
-                    <h3>Lei do Minuto Seguinte</h3>
-                    <p>Garante atendimento emergencial e integral às vítimas de violência sexual no SUS.</p>
-                </div>
-            </div>
-            <div style="text-align: center;">
-                <a href="http://www.compromissoeatitude.org.br/" target="_blank" class="btn-cta-secondary">
-                    Conheça essas e outras leis <i class="bi bi-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <section id="butique" class="section">
         <div class="container">
             <h2 class="section-title">Butique Solidária</h2>
-            <div class="butique-desc">
-                <p>A Butique Solidária é uma parceria entre a Ouvidoria da Mulher e a sociedade civil para suprir necessidades básicas.</p>
-            </div>
             <div class="butique-wrapper">
                 <div class="butique-block">
                     <h3><i class="bi bi-box2-heart"></i> O que doar?</h3>
@@ -195,7 +171,7 @@
         <div class="container">
             <h2 class="section-title">Localização</h2>
             <div class="map-frame">
-                <iframe src="http://googleusercontent.com/maps.google.com/27" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.376594132453!2d-49.25764668513239!3d-16.67689618850876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef1a4731c24ed%3A0x36174d72e5977565!2sC%C3%A2mara%20Municipal%20de%20Goi%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1614123456789!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -217,6 +193,7 @@
     <a href="https://www.google.com" class="fab-sair" title="Sair Rápido">Sair Rápido <i class="bi bi-box-arrow-right"></i></a>
 
     <script>
+        // Menu Mobile
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const nav = document.querySelector('.nav-links');
             if(nav.style.display === 'flex') {
@@ -234,6 +211,8 @@
                 nav.style.gap = '15px';
             }
         });
+
+        // Carrossel Simples
         const track = document.querySelector('.campaign-track');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
