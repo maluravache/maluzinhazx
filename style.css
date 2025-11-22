@@ -23,7 +23,11 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 /* Tipografia */
-h1, h2, h3 { color: var(--jacarta); font-weight: 800; }
+h1, h2, h3 { 
+    color: var(--jacarta); /* MUDAR AQUI A COR */
+    font-weight: 800; 
+    text-align: center;    /* Isto faz o título ir para o meio */
+}
 h4, .section-subtitle { color: var(--text); font-weight: 400; max-width: 800px; margin: 0 auto 40px; text-align: center; }
 
 .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
