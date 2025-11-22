@@ -23,8 +23,8 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 /* Tipografia */
-h1, h2, h3 { 
-    color: var(--jacarta); /* MUDAR AQUI A COR */
+h1, h2, h3, .section-title { 
+    color: var(--roxo-escuro); /* MUDAR AQUI A COR */
     font-weight: 800; 
     text-align: center;    /* Isto faz o título ir para o meio */
 }
